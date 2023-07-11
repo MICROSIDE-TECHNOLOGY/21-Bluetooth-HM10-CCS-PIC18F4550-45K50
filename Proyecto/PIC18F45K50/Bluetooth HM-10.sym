@@ -1,0 +1,68 @@
+000     @SCRATCH
+001     @SCRATCH
+001     _RETURN_
+002     @SCRATCH
+003     @SCRATCH
+004-005 @sprintf_string
+006     main.Caracter
+007     @PSTRINGC_9600_31766_31767.@SCRATCH1
+008     @PSTRINGC_9600_31766_31767.@SCRATCH2
+F78.6   C2OUT
+F79.6   C1OUT
+F90     CCP_2
+F90     CCP_2_LOW
+F91     CCP_2_HIGH
+FBE     CCP_1
+FBE     CCP_1_LOW
+FBF     CCP_1_HIGH
+FE1-FE2 @WRITE_PACKED_MEMORY.P1
+FE1-FE2 @READ_PACKED_MEMORY.P2
+FE9-FEA @WRITE_PROGRAM_MEMORY.P1
+FE9-FEA @READ_PROGRAM_MEMORY.P2
+FE9-FEA @READ_PACKED_MEMORY.P3
+FE9-FEA @WRITE_PACKED_MEMORY.P4
+FF6-FF8 @WRITE_PROGRAM_MEMORY.P1
+FF6-FF8 @READ_PROGRAM_MEMORY.P2
+
+ROM Allocation:
+002008  @const707.call
+002018  @const712.call
+00202A  @PSTRINGC_9600_31766_31767
+00204C  main
+00204C  @cinit1
+002080  @cinit2
+
+Project Directory:
+    C:\Users\Martin Hdez\Desktop\18F45K50\Práctica 21 – Bluetooth HM-10\
+
+Project Files:
+    Bluetooth HM-10.c                                       [30-nov.-20 17:19  CRC=D3271353]
+    D:\Programas\PICC\Devices\18F45K50.h                    [02-oct.-19 09:47  CRC=5092E4C4]
+
+Source signature=744CDCDB
+Program memory checksum=0000
+Hex file CRC=FDAC
+
+Units:
+    C:\Users\Martin Hdez\Desktop\18F45K50\Práctica 21 – Bluetooth HM-10\Bluetooth HM-10 (main)
+
+Compiler Settings:
+    Processor:      PIC18F45K50
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+    Compile Mode:       CCS5
+
+Output Files:
+    XREF file:   Bluetooth HM-10.xsym
+    Errors:      Bluetooth HM-10.err
+    Ext Symbols: Bluetooth HM-10.esym
+    INHX32:      Bluetooth HM-10.hex
+    Symbols:     Bluetooth HM-10.sym
+    List:        Bluetooth HM-10.lst
+    Debug/COFF:  Bluetooth HM-10.cof
+    Project:     Bluetooth HM-10.ccspjt
+    Call Tree:   Bluetooth HM-10.tre
+    Statistics:  Bluetooth HM-10.STA
