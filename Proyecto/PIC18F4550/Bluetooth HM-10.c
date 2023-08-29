@@ -7,17 +7,17 @@ Driver Version    :  1.0
 ************************************************************************************************/
 /*
 ---------------------------------------------------------------------------
-Esta pr√°ctica consiste en realizar el envio de datos por medio de un m√≥dulo
-Bluetooth, usando el protocolo de comunicaci√≥n serial UART, para enviar un
+Esta pr·ctica consiste en realizar el envio de datos por medio de un mÛdulo
+Bluetooth, usando el protocolo de comunicaciÛn serial UART, para enviar un
 comando simple para prender y apagar un LED incluido en la tarjeta X-TRAINER,
-y un segundo comando para preguntar el estado de un bot√≥n.
+y un segundo comando para preguntar el estado de un botÛn.
 ---------------------------------------------------------------------------
 */
 
 #include <18F4550.h>                            //Incluye el microcontrolador con el que se va a trabajar 
 #use delay(clock=48Mhz, crystal)                //Tipo de oscilador y frecuencia dependiendo del microcontrolador 
-#build(reset=0x02000,interrupt=0x02008)         //Asignaci√≥n de los vectores de reset e interrupci√≥n
-#org 0x0000,0x1FFF {}                           //Reserva espacio en la memoria para la versi√≥n con bootloader
+#build(reset=0x02000,interrupt=0x02008)         //AsignaciÛn de los vectores de reset e interrupciÛn
+#org 0x0000,0x1FFF {}                           //Reserva espacio en la memoria para la versiÛn con bootloader
 
 
 #USE RS232(stream=SERIE, BAUD=9600, PARITY=N, XMIT=PIN_C6, RCV=PIN_C7,BITS=8)
@@ -50,7 +50,7 @@ y un segundo comando para preguntar el estado de un bot√≥n.
 
                          }
 
-                       else if (Caracter == '?')    //Pregunta el estado del bot√≥n
+                       else if (Caracter == '?')    //Pregunta el estado del botÛn
 
                          {
 
@@ -58,7 +58,7 @@ y un segundo comando para preguntar el estado de un bot√≥n.
 
                            {
 
-                          Printf ("0");             //Env√≠a un 0 si el bot√≥n no est√° presionado
+                          Printf ("0");             //EnvÌa un 0 si el botÛn no est· presionado
 
                             }
 
@@ -66,7 +66,7 @@ y un segundo comando para preguntar el estado de un bot√≥n.
 
                        {
 
-                           Printf ("1");            //Env√≠a un 1 si el bot√≥n est√° presionado
+                           Printf ("1");            //EnvÌa un 1 si el botÛn est· presionado
 
                        }
 
