@@ -10,42 +10,42 @@
 F83     PSP_DATA
 FB4.6   C1OUT
 FB4.7   C2OUT
-FBB     CCP_2_LOW
 FBB     CCP_2
+FBB     CCP_2_LOW
 FBC     CCP_2_HIGH
-FBE     CCP_1_LOW
 FBE     CCP_1
+FBE     CCP_1_LOW
 FBF     CCP_1_HIGH
 FE1-FE2 @READ_PACKED_MEMORY.P1
 FE1-FE2 @WRITE_PACKED_MEMORY.P2
-FE9-FEA @WRITE_PROGRAM_MEMORY.P1
-FE9-FEA @WRITE_PACKED_MEMORY.P2
-FE9-FEA @READ_PROGRAM_MEMORY.P3
+FE9-FEA @READ_PROGRAM_MEMORY.P1
+FE9-FEA @WRITE_PROGRAM_MEMORY.P2
+FE9-FEA @WRITE_PACKED_MEMORY.P3
 FE9-FEA @READ_PACKED_MEMORY.P4
 FF6-FF8 @READ_PROGRAM_MEMORY.P1
 FF6-FF8 @WRITE_PROGRAM_MEMORY.P2
 
 ROM Allocation:
-002008  @const701.call
-002018  @const706.call
-00202A  @PSTRINGC_9600_31766_31767
-00204C  main
-00204C  @cinit1
-002072  @cinit2
+002008  @const738.call
+002016  @const743.call
+002026  @PSTRINGC_9600_31766_31767
+002048  main
+002048  @cinit1
+00206E  @cinit2
 
 Project Directory:
-    C:\Users\Martin Hdez\Desktop\18F4550\21 Bluetooth HM-10\
+    C:\Users\victo\OneDrive\Documentos\X-TRAINER-hands-on\CCS\PIC18F\21-Bluetooth-HM10-CCS-PIC18F4550-45K50\Proyecto\PIC18F4550\
 
 Project Files:
-    Bluetooth HM-10.c                                       [30-nov.-20 17:19  CRC=B3BE9EC4]
-    D:\Programas\PICC\Devices\18F4550.h                     [02-oct.-19 09:47  CRC=AFEA7A8E]
+    Bluetooth HM-10.c                                       [30-ago.-23 17:21  CRC=C47CC919]
+    ..\..\..\..\..\..\..\..\..\..\Program Files (x86)\PICCDEMO\Devices\18F4550.h [02-may.-23 08:34  CRC=3BACED27]
 
-Source signature=139393E0
+Source signature=3BD6A367
 Program memory checksum=0000
-Hex file CRC=99BF
+Hex file CRC=4451
 
 Units:
-    C:\Users\Martin Hdez\Desktop\18F4550\21 Bluetooth HM-10\Bluetooth HM-10 (main)
+    C:\Users\victo\OneDrive\Documentos\X-TRAINER-hands-on\CCS\PIC18F\21-Bluetooth-HM10-CCS-PIC18F4550-45K50\Proyecto\PIC18F4550\Bluetooth HM-10 (main)
 
 Compiler Settings:
     Processor:      PIC18F4550
@@ -54,7 +54,10 @@ Compiler Settings:
     Opt Level:      9
     Short,Int,Long: UNSIGNED: 1,8,16
     Float,Double:   32,32
-    Compile Mode:       CCS5
+    Compile Mode:   CCS5
+
+Compiler operating in Evaluation Mode
+To obtain a fully enabled compiler visit www.ccsinfo.com/products
 
 Output Files:
     XREF file:   Bluetooth HM-10.xsym

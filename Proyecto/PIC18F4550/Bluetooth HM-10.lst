@@ -1,21 +1,27 @@
-CCS PCH C Compiler, Version 5.090, 13314               02-dic.-20 10:18
+CCS PCH C Compiler, Version 5.115d, 1               30-ago.-23 17:22
+Compiler operating in Evaluation Mode
+To obtain a fully enabled compiler visit www.ccsinfo.com/products
 
-               Filename:   C:\Users\Martin Hdez\Desktop\18F4550\21 Bluetooth HM-10\Bluetooth HM-10.lst
+               Filename:   C:\Users\victo\OneDrive\Documentos\X-TRAINER-hands-on\CCS\PIC18F\21-Bluetooth-HM10-CCS-PIC18F4550-45K50\Proyecto\PIC18F4550\Bluetooth HM-10.lst
 
-               ROM used:   202 bytes (1%)
-                           Largest free fragment is 24370
+               ROM used:   198 bytes (1%)
+                           Largest free fragment is 24374
                RAM used:   7 (0%) at main() level
                            9 (0%) worst case
                Stack used: 0 locations
                Stack size: 31
 
 *
-2000:  GOTO   204C
-.................... /*
-.................... AUTOR: MICROSIDE TECHNOLOGY S.A. DE C.V.
-.................... FECHA: JUNIO 2019
-.................... */
-.................... 
+2000:  GOTO   2048
+.................... /************************************************************************************************
+.................... Company:
+.................... Microside Technology Inc.
+.................... File Name:
+.................... Bluetooth HM-10.c
+.................... Product Revision  :  1
+.................... Device            :  X-TRAINER
+.................... Driver Version    :  1.0
+.................... ************************************************************************************************/
 .................... 
 .................... /*
 .................... ---------------------------------------------------------------------------
@@ -26,10 +32,10 @@ CCS PCH C Compiler, Version 5.090, 13314               02-dic.-20 10:18
 .................... ---------------------------------------------------------------------------
 .................... */
 .................... 
-.................... #include <18F4550.h>                            //Incluye el microcontrolador con el que se va a trabajar 
+.................... #include  <18F4550.h>                          // Para PIC18F4550 cambiar por: #include <18F4550.h>
 .................... //////////// Standard Header file for the PIC18F4550 device ////////////////
 .................... ///////////////////////////////////////////////////////////////////////////
-.................... ////        (C) Copyright 1996, 2014 Custom Computer Services          ////
+.................... ////        (C) Copyright 1996, 2020 Custom Computer Services          ////
 .................... //// This source code may only be used by licensed users of the CCS C  ////
 .................... //// compiler.  This source code may only be distributed to other      ////
 .................... //// licensed users of the CCS C compiler.  No other use, reproduction ////
@@ -44,161 +50,132 @@ CCS PCH C Compiler, Version 5.090, 13314               02-dic.-20 10:18
 200C:  DATA 41,50
 200E:  DATA 41,47
 2010:  DATA 41,44
-2012:  DATA 4F,5C
-2014:  DATA 5C,6E
-2016:  DATA 00,00
-2018:  DATA 4C,45
-201A:  DATA 44,20
-201C:  DATA 45,4E
-201E:  DATA 43,45
-2020:  DATA 4E,44
-2022:  DATA 49,44
-2024:  DATA 4F,5C
-2026:  DATA 5C,6E
-2028:  DATA 00,00
-202A:  TBLRD*+
-202C:  MOVF   FF5,F
-202E:  BZ    204A
-2030:  MOVFF  FF6,07
-2034:  MOVFF  FF7,08
-2038:  MOVF   FF5,W
-203A:  BTFSS  F9E.4
-203C:  BRA    203A
-203E:  MOVWF  FAD
-2040:  MOVFF  07,FF6
-2044:  MOVFF  08,FF7
-2048:  BRA    202A
-204A:  RETURN 0
+2012:  DATA 4F,0D
+2014:  DATA 0A,00
+2016:  DATA 4C,45
+2018:  DATA 44,20
+201A:  DATA 45,4E
+201C:  DATA 43,45
+201E:  DATA 4E,44
+2020:  DATA 49,44
+2022:  DATA 4F,0D
+2024:  DATA 0A,00
+2026:  TBLRD*+
+2028:  MOVF   FF5,F
+202A:  BZ    2046
+202C:  MOVFF  FF6,07
+2030:  MOVFF  FF7,08
+2034:  MOVF   FF5,W
+2036:  BTFSS  F9E.4
+2038:  BRA    2036
+203A:  MOVWF  FAD
+203C:  MOVFF  07,FF6
+2040:  MOVFF  08,FF7
+2044:  BRA    2026
+2046:  RETURN 0
 .................... 
 .................... #list
 .................... 
-.................... #use delay(clock=48Mhz, crystal)                //Tipo de oscilador y frecuencia dependiendo del microcontrolador 
-.................... #build(reset=0x02000,interrupt=0x02008)         //Asignación de los vectores de reset e interrupción
-.................... #org 0x0000,0x1FFF {}                           //Reserva espacio en la memoria para la versión con bootloader
+.................... #use delay( clock=48Mhz, crystal )             // Tipo de oscilador y frecuencia dependiendo del microcontrolador 
+.................... #build( reset=0x02000, interrupt=0x02008 )     // Asigna los vectores de reset e interrupción para la versión con bootloader
+.................... #org 0x0000,0x1FFF {}                          // Reserva espacio en memoria para el bootloader 
 .................... 
+.................... //-------------------------------------------------------------------------------
+.................... #USE RS232( stream=SERIE, BAUD=9600, PARITY=N, XMIT=PIN_C6, RCV=PIN_C7, BITS=8)
 .................... 
-.................... #USE RS232(stream=SERIE, BAUD=9600, PARITY=N, XMIT=PIN_C6, RCV=PIN_C7,BITS=8)
-.................... 
-.................... #define LED pin_A1
+.................... #define LED pin_A4
 .................... #define Boton pin_A2
 .................... 
-....................      void main(void)
-204C:  CLRF   FF8
-204E:  BCF    FD0.7
-2050:  BSF    FB8.3
-2052:  MOVLW  E1
-2054:  MOVWF  FAF
-2056:  MOVLW  04
-2058:  MOVWF  FB0
-205A:  MOVLW  A6
-205C:  MOVWF  FAC
-205E:  MOVLW  90
-2060:  MOVWF  FAB
-2062:  CLRF   05
-2064:  CLRF   04
-2066:  MOVF   FC1,W
-2068:  ANDLW  C0
-206A:  IORLW  0F
-206C:  MOVWF  FC1
-206E:  MOVLW  07
-2070:  MOVWF  FB4
-....................         {
+.................... void main(void) {
+2048:  CLRF   FF8
+204A:  BCF    FD0.7
+204C:  BSF    FB8.3
+204E:  MOVLW  E1
+2050:  MOVWF  FAF
+2052:  MOVLW  04
+2054:  MOVWF  FB0
+2056:  MOVLW  A6
+2058:  MOVWF  FAC
+205A:  MOVLW  90
+205C:  MOVWF  FAB
+205E:  CLRF   05
+2060:  CLRF   04
+2062:  MOVF   FC1,W
+2064:  ANDLW  C0
+2066:  IORLW  0F
+2068:  MOVWF  FC1
+206A:  MOVLW  07
+206C:  MOVWF  FB4
+....................    while ( !kbhit() ) {                        // Pregunta si hay algun dato recibido
+206E:  BTFSC  F9E.5
+2070:  BRA    20C8
+....................       while ( 1 ) {
+....................          char Caracter = getc();               // Guarda el caracter
+2072:  BTFSS  F9E.5
+2074:  BRA    2072
+2076:  MOVFF  FAE,06
 .................... 
-....................               while(!kbhit())                    //Pregunta si hay algun dato recibido
-2072:  BTFSC  F9E.5
-2074:  BRA    20CC
-....................                while (TRUE)
-....................                      {
-....................                        char Caracter = getc ();  //Guarda el caracter
-2076:  BTFSS  F9E.5
-2078:  BRA    2076
-207A:  MOVFF  FAE,06
+....................          if ( Caracter == '0' ) {
+207A:  MOVF   06,W
+207C:  SUBLW  30
+207E:  BNZ   2090
+....................                output_low( LED );              // Apaga el LED
+2080:  BCF    F92.4
+2082:  BCF    F89.4
+....................                fprintf( SERIE, "LED APAGADO\r\n" );
+2084:  MOVLW  08
+2086:  MOVWF  FF6
+2088:  MOVLW  20
+208A:  MOVWF  FF7
+208C:  RCALL  2026
+....................          } else if ( Caracter == '1' ) {
+208E:  BRA    20C4
+2090:  MOVF   06,W
+2092:  SUBLW  31
+2094:  BNZ   20A6
+....................                output_HIGH( LED );             // Enciende el LED
+2096:  BCF    F92.4
+2098:  BSF    F89.4
+....................                fprintf( SERIE, "LED ENCENDIDO\r\n" );
+209A:  MOVLW  16
+209C:  MOVWF  FF6
+209E:  MOVLW  20
+20A0:  MOVWF  FF7
+20A2:  RCALL  2026
+....................          } else if ( Caracter == '?' ) {
+20A4:  BRA    20C4
+20A6:  MOVF   06,W
+20A8:  SUBLW  3F
+20AA:  BNZ   20C4
 .................... 
-....................                        if (Caracter == '0')
-207E:  MOVF   06,W
-2080:  SUBLW  30
-2082:  BNZ   2094
-.................... 
-....................                             {
-.................... 
-....................                                output_low (LED); //Apaga el LED
-2084:  BCF    F92.1
-2086:  BCF    F89.1
-....................                                fprintf(SERIE,"LED APAGADO\\\\n");
-2088:  MOVLW  08
-208A:  MOVWF  FF6
-208C:  MOVLW  20
-208E:  MOVWF  FF7
-2090:  RCALL  202A
-.................... 
-....................                             }
-2092:  BRA    20C8
-.................... 
-....................                        else if (Caracter == '1')
-2094:  MOVF   06,W
-2096:  SUBLW  31
-2098:  BNZ   20AA
-.................... 
-....................                          {
-....................                                output_HIGH (LED); //Enciende el LED
-209A:  BCF    F92.1
-209C:  BSF    F89.1
-....................                                fprintf(SERIE,"LED ENCENDIDO\\\\n");
-209E:  MOVLW  18
-20A0:  MOVWF  FF6
-20A2:  MOVLW  20
-20A4:  MOVWF  FF7
-20A6:  RCALL  202A
-.................... 
-....................                          }
-20A8:  BRA    20C8
-.................... 
-....................                        else if (Caracter == '?')    //Pregunta el estado del botón
-20AA:  MOVF   06,W
-20AC:  SUBLW  3F
-20AE:  BNZ   20C8
-.................... 
-....................                          {
-.................... 
-....................                         if (1 == input (Boton))
-20B0:  BSF    F92.2
-20B2:  BTFSS  F80.2
-20B4:  BRA    20C0
-.................... 
-....................                            {
-.................... 
-....................                           Printf ("0");             //Envía un 0 si el botón no está presionado
-20B6:  MOVLW  30
-20B8:  BTFSS  F9E.4
-20BA:  BRA    20B8
-20BC:  MOVWF  FAD
-.................... 
-....................                             }
-20BE:  BRA    20C8
-.................... 
-....................                  else
-.................... 
-....................                        {
-.................... 
-....................                            Printf ("1");            //Envía un 1 si el botón está presionado
-20C0:  MOVLW  31
-20C2:  BTFSS  F9E.4
-20C4:  BRA    20C2
-20C6:  MOVWF  FAD
-.................... 
-....................                        }
-.................... 
-....................                 }
-20C8:  BRA    2076
-20CA:  BRA    2072
-.................... 
-....................         }
+....................             if ( 1 == input( Boton ) ) {       // Pregunta el estado del botón
+20AC:  BSF    F92.2
+20AE:  BTFSS  F80.2
+20B0:  BRA    20BC
+....................                Printf( "0" );                  // Envía un 0 si el botón no está presionado
+20B2:  MOVLW  30
+20B4:  BTFSS  F9E.4
+20B6:  BRA    20B4
+20B8:  MOVWF  FAD
+....................             } else {
+20BA:  BRA    20C4
+....................                Printf( "1" );                  // Envía un 1 si el botón está presionado
+20BC:  MOVLW  31
+20BE:  BTFSS  F9E.4
+20C0:  BRA    20BE
+20C2:  MOVWF  FAD
+....................             }
+....................          }
+20C4:  BRA    2072
+....................       }
+20C6:  BRA    206E
+....................    }
 .................... }
-20CC:  SLEEP 
+20C8:  SLEEP 
 
 Configuration Fuses:
    Word  1: CC07   PLL12 CPUDIV1 NOUSBDIV HS FCMEN IESO
-   Word  2: 1E26   PUT BROWNOUT VREGEN NOWDT WDT32768
+   Word  2: 1E3E   PUT BROWNOUT BORV21 VREGEN NOWDT WDT32768
    Word  3: 8700   CCP2C1 PBADEN LPT1OSC MCLR
    Word  4: 00A1   STVREN NOLVP ICSP2 NOXINST NODEBUG
    Word  5: C00F   NOPROTECT NOCPB NOCPD
